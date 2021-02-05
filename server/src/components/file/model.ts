@@ -19,7 +19,7 @@ export class File extends BaseEntity {
     type: string;
 
     @Column({ nullable: false })
-    size: string;
+    size: number;
 
     @Column()
     path: string;
