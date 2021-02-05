@@ -1,1 +1,3 @@
-export * from "./author.model";
+export * from "./model";
+export * from "./routes";
+export * from "./controller";

@@ -1,1 +1,0 @@
-export * from "./dailyPhrase.model";

@@ -1,4 +1,4 @@
-export * from "./file.controller";
-export * from "./file.model";
-export * from "./file.routes";
+export * from "./controller";
+export * from "./model";
+export * from "./routes";
 export * from "./types";

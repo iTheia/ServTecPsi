@@ -17,4 +17,8 @@ export class HTTPServer {
     async start(port: number) {
         this.server.listen(port);
     }
+
+    useMiddleware(middleware: any) {
+        this.app.use(middleware);
+    }
 }
