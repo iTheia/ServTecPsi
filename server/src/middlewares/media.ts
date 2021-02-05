@@ -1,33 +1,34 @@
-import multer, { FileFilterCallback, Multer } from 'multer';
-import { v4 as uuid } from 'uuid';
-import { extname } from 'path';
-import { Request } from 'express';
+import multer from "multer";
+import { v4 as uuid } from "uuid";
+import { extname } from "path";
+import { mkdirSync } from "fs";
+import { IRequest } from "../components/types";
 
 const storageEngine = multer.diskStorage({
-	destination: 'public/images',
-	filename: (_, file, cb) => {
-		const fileName = uuid() + extname(file.originalname);
-		cb(null, fileName);
-	},
+    destination: (req: IRequest, _, callback: CallableFunction) => {
+        const path = `static/images/${req.userInfo.id}/`;
+        // @ts-ignore
+        mkdirSync(path, { recursive: true });
+        callback(null, path);
+    },
+    filename: (req, file, cb) => {
+        const fileName = uuid() + extname(file.originalname);
+        cb(null, fileName);
+    },
 });
 
-export const uploadOptions = {
-	storage: storageEngine,
-	dest: 'public/images',
-	limits: {
-		fileSize: 1000000,
-	},
-	fileFilter: (
-		req: Request,
-		file: Express.Multer.File,
-		cb: FileFilterCallback
-	) => {
-		const fileTypes = /jpeg|jpg|png/;
-		const mimeType = fileTypes.test(file.mimetype);
-		const extension = fileTypes.test(extname(file.originalname));
-		if (mimeType && extension) {
-			return cb(null, true);
-		}
-		req.res.send({ error: true, msg: 'Extension del archivo invalida' });
-	},
-};
+export const upload = multer({
+    storage: storageEngine,
+    limits: {
+        fileSize: 1000000,
+    },
+    fileFilter: (req, file, cb) => {
+        const fileTypes = /jpeg|jpg|png/;
+        const mimeType = fileTypes.test(file.mimetype);
+        const extension = fileTypes.test(extname(file.originalname));
+        if (mimeType && extension) {
+            return cb(null, true);
+        }
+        req.res.send({ error: true, msg: "Extension del archivo invalida" });
+    },
+});
