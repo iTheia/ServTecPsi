@@ -18,4 +18,5 @@ export const dev: IConfig = {
         database: process.env.DEV_DB_DATABASE || "psicologia",
         type: "mysql",
     },
+    host: "http://localhost:5000",
 };
