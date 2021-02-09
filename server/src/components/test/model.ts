@@ -8,8 +8,8 @@ import {
     UpdateDateColumn,
 } from "typeorm";
 import { Question } from "../question";
-import { Result } from "../result/result.model";
-import { TestParagraph } from "./paragraph.model";
+import { Result } from "../result";
+import { TestParagraph } from "../test_paragraph";
 
 @Entity()
 export class Test extends BaseEntity {

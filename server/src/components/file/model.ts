@@ -5,6 +5,8 @@ import {
     BaseEntity,
     OneToMany,
 } from "typeorm";
+import { PostParagraph } from "../post_paragraph";
+import { Result } from "../result";
 import { User } from "../user";
 
 @Entity()
@@ -26,4 +28,10 @@ export class File extends BaseEntity {
 
     @OneToMany(() => User, (userInfo) => userInfo.avatar)
     users: User[];
+
+    @OneToMany(() => PostParagraph, (postParagraph) => postParagraph.image)
+    postParagraphs: PostParagraph[];
+
+    @OneToMany(() => Result, (result) => result.image)
+    results: Result[];
 }

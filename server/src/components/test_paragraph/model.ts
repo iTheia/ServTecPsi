@@ -6,7 +6,7 @@ import {
     ManyToOne,
     PrimaryGeneratedColumn,
 } from "typeorm";
-import { Test } from "./test.model";
+import { Test } from "../test";
 
 @Entity()
 export class TestParagraph extends BaseEntity {
@@ -17,7 +17,7 @@ export class TestParagraph extends BaseEntity {
     text: string;
 
     @Column()
-    image: string;
+    image: number;
 
     @Column()
     test_id: number;

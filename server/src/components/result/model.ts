@@ -6,7 +6,8 @@ import {
     ManyToOne,
     PrimaryGeneratedColumn,
 } from "typeorm";
-import { Test } from "../test/test.model";
+import { File } from "../file";
+import { Test } from "../test/model";
 
 @Entity()
 export class Result extends BaseEntity {
@@ -20,7 +21,11 @@ export class Result extends BaseEntity {
     text: string;
 
     @Column()
-    image: string;
+    image_id: number;
+
+    @ManyToOne(() => File, (file) => file.results)
+    @JoinColumn({ name: "image_id" })
+    image: File;
 
     @Column()
     test_id: number;

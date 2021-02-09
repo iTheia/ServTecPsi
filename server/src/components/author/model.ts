@@ -5,7 +5,7 @@ import {
     OneToMany,
     PrimaryGeneratedColumn,
 } from "typeorm";
-import { DailyPhrase } from "../dailyPhrase";
+import { DailyPhrase } from "../daily_phrase";
 
 @Entity()
 export class Author extends BaseEntity {

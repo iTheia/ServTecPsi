@@ -7,7 +7,7 @@ import {
     PrimaryGeneratedColumn,
     UpdateDateColumn,
 } from "typeorm";
-import { PostParagraph } from "./paragraph.model";
+import { PostParagraph } from "../post_paragraph";
 
 @Entity()
 export class Post extends BaseEntity {

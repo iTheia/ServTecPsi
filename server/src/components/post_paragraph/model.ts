@@ -6,7 +6,8 @@ import {
     ManyToOne,
     PrimaryGeneratedColumn,
 } from "typeorm";
-import { Post } from "./post.model";
+import { File } from "../file";
+import { Post } from "../post";
 
 @Entity()
 export class PostParagraph extends BaseEntity {
@@ -17,7 +18,11 @@ export class PostParagraph extends BaseEntity {
     text: string;
 
     @Column()
-    image: string;
+    image_id: number;
+
+    @ManyToOne(() => File, (file) => file.postParagraphs)
+    @JoinColumn()
+    image: File;
 
     @Column()
     post_id: number;
