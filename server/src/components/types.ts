@@ -6,7 +6,7 @@ export interface IRequest extends Request {
 }
 
 export interface IPaginatedRequest extends Request {
-    paginatedData: IResult;
+    paginated: IResult;
 }
 
 export interface IPage {
@@ -17,6 +17,9 @@ export interface IPage {
 export interface IResult {
     data: any[];
     page: number;
-    next: IPage | null;
-    previous: IPage | null;
+    from: number;
+    to: number;
+    total: number;
+    next_page: IPage | null;
+    prev_page: IPage | null;
 }
