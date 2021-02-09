@@ -6,7 +6,7 @@ import {
     ManyToOne,
     PrimaryGeneratedColumn,
 } from "typeorm";
-import { Test } from "../test";
+import { Test } from "../test/model";
 
 @Entity()
 export class Question extends BaseEntity {

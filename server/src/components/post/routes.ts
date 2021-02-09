@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as controller from "./controller";
-import { postParagraphRoutes } from "../post_paragraph";
+import { postParagraphRoutes } from "../post_paragraph/routes";
 import { authorizationMiddleware } from "../../middlewares";
 import { paginate } from "../util";
 import { Post } from "./model";

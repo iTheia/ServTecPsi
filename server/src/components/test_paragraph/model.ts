@@ -6,7 +6,7 @@ import {
     ManyToOne,
     PrimaryGeneratedColumn,
 } from "typeorm";
-import { Test } from "../test";
+import { Test } from "../test/model";
 
 @Entity()
 export class TestParagraph extends BaseEntity {
@@ -25,8 +25,4 @@ export class TestParagraph extends BaseEntity {
     @ManyToOne(() => Test, (test) => test.paragraphs)
     @JoinColumn({ name: "test_id" })
     test: Test;
-
-    hola() {
-        return "hola";
-    }
 }
