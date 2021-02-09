@@ -4,6 +4,9 @@ import { Test } from "./model";
 
 export async function createTest(req: Request, res: Response) {
     try {
+        const { title, description } = req.body;
+        const { id } = await Test.create({ title, description }).save();
+        res.send(id);
     } catch (error) {
         res.status(400).send(errorResponse(error));
     }
