@@ -41,5 +41,5 @@ export const dbConfig = {
     database: config.database.database,
     synchronize: false,
     logging: true,
-    entities: ["src/components/**/**.model.ts"],
+    entities: ["src/components/**/model.ts"],
 };
