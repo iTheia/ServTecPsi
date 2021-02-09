@@ -16,8 +16,8 @@ export class DailyPhrase extends BaseEntity {
     @Column()
     phrase: string;
 
-    @Column()
-    day: string;
+    @Column({ type: "timestamp" })
+    day: Date;
 
     @Column()
     author_id: number;
