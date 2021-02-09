@@ -7,7 +7,7 @@ import {
     sendRefreshToken,
 } from "./util";
 import { config } from "../../config";
-import { Login } from "./auth.model";
+import { Login } from "./model";
 import { errorResponse } from "../util";
 import { User } from "../user";
 import { IUserInfo } from "./types";
