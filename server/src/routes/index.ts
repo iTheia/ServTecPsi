@@ -1,7 +1,12 @@
 import { Router } from "express";
-import { authorRoutes, authRoutes } from "../components";
+import * as components from "../components";
 
 export const router = Router();
 
-router.use("/auth", authRoutes);
-router.use("/authors", authorRoutes);
+router.use("/auth", components.authRoutes);
+router.use("/authors", components.authorRoutes);
+router.use("/dailyPhrases", components.dailyPhraseRoutes);
+router.use("/tests", components.testRoutes);
+router.use("/posts", components.postRoutes);
+router.use("/files", components.fileRoutes);
+/* router.use("/users", components.userRoutes) */
