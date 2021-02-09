@@ -4,7 +4,7 @@ import {
     getCurrentSession,
     loginController,
     registerController,
-} from "./auth.controller";
+} from "./controller";
 
 export const authRoutes = Router();
 
