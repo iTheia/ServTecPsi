@@ -1,7 +1,7 @@
 import { Response } from "express";
 import { sign } from "jsonwebtoken";
 import { config } from "../../../config";
-import { Login } from "../auth.model";
+import { Login } from "../model";
 
 export const createRefreshToken = (user: Login) => {
     return sign({ id: user.user_id, role: user.role }, config.token, {
