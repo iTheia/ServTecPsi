@@ -3,20 +3,23 @@ import { IConfig } from "./types";
 require("dotenv").config();
 
 export const dev: IConfig = {
-    port: parseInt(process.env.DEV_PORT) || 5000,
-    token: process.env.DEV_TOKEN || "QEWQEWQEWQE",
-    refreshToken: process.env.DEV_REFRESH_TOKEN || "ASDAS3123;",
-    allowedOrigin:
-        process.env.DEV_ORIGIN !== undefined
-            ? process.env.DEV_ORIGIN.split(",")
-            : ["http://localhost:3000"],
-    database: {
-        port: parseInt(process.env.DEV_DB_PORT) || 3306,
-        host: process.env.DEV_DB_HOST || "localhost",
-        username: process.env.DEV_DB_USERNAME || "root",
-        password: process.env.DEV_DB_PASSWORD || "",
-        database: process.env.DEV_DB_DATABASE || "psicologia",
-        type: "mysql",
-    },
-    host: "http://localhost:5000",
+  port: parseInt(process.env.DEV_PORT) || 5000,
+  token: process.env.DEV_TOKEN || "QEWQEWQEWQE",
+  refreshToken: process.env.DEV_REFRESH_TOKEN || "ASDAS3123;",
+  allowedOrigin:
+    process.env.DEV_ORIGIN !== undefined
+      ? process.env.DEV_ORIGIN.split(",")
+      : ["http://localhost:3000"],
+  database: {
+    port: parseInt(process.env.DEV_DB_PORT) || 3306,
+    host: process.env.DEV_DB_HOST || "localhost",
+    username: process.env.DEV_DB_USERNAME || "root",
+    password: process.env.DEV_DB_PASSWORD || "",
+    database: process.env.DEV_DB_DATABASE || "psicologia",
+    type: "mysql",
+  },
+  host: "http://localhost:5000",
+  googleClientId:
+    process.env.DEV_GOOGLE_CLIENT_ID ||
+    "555619313308-juuatvesksqts69pvp719lnmjhs453ck.apps.googleusercontent.com",
 };
