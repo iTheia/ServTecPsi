@@ -1,37 +1,41 @@
 import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    BaseEntity,
-    OneToMany,
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  OneToMany,
 } from "typeorm";
+import { Post } from "../post";
 import { PostParagraph } from "../post_paragraph";
 import { Result } from "../result";
 import { User } from "../user";
 
 @Entity()
 export class File extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ unique: true })
-    name: string;
+  @Column({ unique: true })
+  name: string;
 
-    @Column({ nullable: false })
-    type: string;
+  @Column({ nullable: false })
+  type: string;
 
-    @Column({ nullable: false })
-    size: number;
+  @Column({ nullable: false })
+  size: number;
 
-    @Column()
-    path: string;
+  @Column()
+  path: string;
 
-    @OneToMany(() => User, (userInfo) => userInfo.avatar)
-    users: User[];
+  @OneToMany(() => User, (userInfo) => userInfo.avatar)
+  users: User[];
 
-    @OneToMany(() => PostParagraph, (postParagraph) => postParagraph.image)
-    postParagraphs: PostParagraph[];
+  @OneToMany(() => PostParagraph, (postParagraph) => postParagraph.image)
+  postParagraphs: PostParagraph[];
 
-    @OneToMany(() => Result, (result) => result.image)
-    results: Result[];
+  @OneToMany(() => Post, (post) => post.image)
+  posts: Post[];
+
+  @OneToMany(() => Result, (result) => result.image)
+  results: Result[];
 }

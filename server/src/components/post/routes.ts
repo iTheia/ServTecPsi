@@ -1,10 +1,14 @@
 import { Router } from "express";
 import * as controller from "./controller";
 import { postParagraphRoutes } from "../post_paragraph/routes";
-import { authorizationMiddleware } from "../../middlewares";
-import { paginate, sendPaginatedData } from "../util";
+import {
+  authorizationMiddleware,
+  trending,
+  paginate,
+  sendPaginatedData,
+} from "../../middlewares";
+import { canUse } from "../util";
 import { Post } from "./model";
-import { canUse } from "../util/permission";
 
 export const postRoutes = Router();
 
@@ -14,6 +18,8 @@ postRoutes
   .route("/")
   .get(paginate(Post, [["data.paragraphs", "paragraphs"]]), sendPaginatedData)
   .post(authorizationMiddleware, canUse("admin"), controller.createPost);
+
+postRoutes.get("/trend", trending(Post, 8));
 
 postRoutes
   .route("/:id")
