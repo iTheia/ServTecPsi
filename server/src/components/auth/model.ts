@@ -1,40 +1,37 @@
 import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    BaseEntity,
-    OneToOne,
-    JoinColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  OneToOne,
+  JoinColumn,
 } from "typeorm";
 import { User } from "../user";
 import { roles } from "./types";
 
 @Entity()
 export class Login extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ unique: true })
-    username: string;
+  @Column({ unique: true })
+  username: string;
 
-    @Column({ unique: true })
-    email: string;
+  @Column({ unique: true })
+  email: string;
 
-    @Column({ nullable: false })
-    password: string;
+  @Column({ default: 0 })
+  tokenVersion: number;
 
-    @Column({ default: 0 })
-    tokenVersion: number;
+  @Column({ default: "student" })
+  role: roles;
 
-    @Column({ default: "basic" })
-    role: roles;
+  @Column({ default: "" })
+  password: string;
 
-    @Column({ default: false })
-    isConfirmed: boolean;
-
-    @Column()
-    user_id: number;
-    @OneToOne(() => User)
-    @JoinColumn({ name: "user_id" })
-    user: User;
+  @Column({ nullable: true })
+  user_id: number;
+  @OneToOne(() => User, { onDelete: "CASCADE" })
+  @JoinColumn({ name: "user_id" })
+  user: User;
 }
