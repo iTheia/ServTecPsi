@@ -1,28 +1,28 @@
 import {
-    BaseEntity,
-    Column,
-    Entity,
-    JoinColumn,
-    ManyToOne,
-    PrimaryGeneratedColumn,
+  BaseEntity,
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
 } from "typeorm";
 import { Author } from "../author";
 
 @Entity()
 export class DailyPhrase extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    phrase: string;
+  @Column()
+  phrase: string;
 
-    @Column({ type: "timestamp" })
-    day: Date;
+  @Column({ type: "timestamp" })
+  date: Date;
 
-    @Column()
-    author_id: number;
+  @Column()
+  author_id: number;
 
-    @ManyToOne(() => Author, (author) => author.phrases)
-    @JoinColumn({ name: "author_id" })
-    author: Author;
+  @ManyToOne(() => Author, (author) => author.phrases)
+  @JoinColumn({ name: "author_id" })
+  author: Author;
 }
