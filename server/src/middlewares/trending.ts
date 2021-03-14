@@ -6,9 +6,11 @@ export function trending(entity: any, limit: number, where = "") {
     try {
       const query = entity.createQueryBuilder("data");
       query.take(limit);
+      query.leftJoinAndSelect("data.image", "image");
       if (where !== "") {
         query.where(where);
       }
+      query.orderBy("data.createdAt", "DESC");
       const trend = await query.getMany();
       res.send(trend);
     } catch (error) {
