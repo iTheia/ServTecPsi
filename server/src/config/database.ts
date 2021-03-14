@@ -1,6 +1,9 @@
 import { config } from "./main";
 
 const isDev = process.env.NODE_ENV === "dev";
+
+const synchronize = process.argv.includes("sync");
+
 export const dbConfig = isDev
   ? {
       type: config.database.type,
@@ -9,9 +12,9 @@ export const dbConfig = isDev
       username: config.database.username,
       password: config.database.password,
       database: config.database.database,
-      synchronize: false,
+      synchronize,
       logging: true,
-      entities: ["src/components/**/model.ts"],
+      entities: ["src/components/**/index.ts"],
     }
   : {
       type: config.database.type,
@@ -20,7 +23,7 @@ export const dbConfig = isDev
       username: config.database.username,
       password: config.database.password,
       database: config.database.database,
-      synchronize: true,
+      synchronize,
       logging: true,
-      entities: ["components/**/model.js"],
+      entities: ["components/**/index.js"],
     };
