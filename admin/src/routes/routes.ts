@@ -1,8 +1,17 @@
 import { IRoute } from "../constants";
-import { HomePage } from "../pages/Home";
+import { DashBoardPage, LoginPage } from "../pages";
 
 export const authRoutes: IRoute[] = [
-    { path: "/", component: HomePage, exact: true },
+  {
+    path: "/",
+    component: LoginPage,
+    exact: true,
+  },
 ];
 
-export const adminRoutes: IRoute[] = [];
+export const adminRoutes: IRoute[] = [
+  {
+    path: "/dashboard",
+    component: DashBoardPage,
+  },
+];

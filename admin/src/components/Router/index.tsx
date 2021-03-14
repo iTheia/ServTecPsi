@@ -3,12 +3,12 @@ import React from "react";
 import { IRoute } from "../../constants";
 
 interface Props {
-    routes: IRoute[];
+  routes: IRoute[];
 }
 export const RouterComponent: React.FC<Props> = ({ routes }) => (
-    <Switch>
-        {routes.map((route, index) => (
-            <Route key={index} {...route} />
-        ))}
-    </Switch>
+  <Switch>
+    {routes.map((route, index) => (
+      <Route key={index} {...route} />
+    ))}
+  </Switch>
 );
