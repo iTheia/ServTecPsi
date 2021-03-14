@@ -1,14 +1,17 @@
 import { Router } from "express";
-import { authorizationMiddleware } from "../../middlewares";
-import { paginate, sendPaginatedData } from "../../middlewares/pagination";
-import { canUse } from "../util/permission/middleware";
+import { canUse } from "../../";
+import {
+  authorizationMiddleware,
+  paginate,
+  sendPaginatedData,
+} from "../../../middlewares";
 import {
   createAuthor,
   deleteAuthor,
   getAuthor,
   updateAuthor,
-} from "./controller";
-import { Author } from "./model";
+} from "../controller";
+import { Author } from "../model";
 
 export const authorRoutes = Router();
 
