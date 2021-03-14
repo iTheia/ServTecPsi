@@ -6,7 +6,7 @@ import {
   createRefreshToken,
   createAccessToken,
 } from "../../util";
-import { errorResponse } from "../../..";
+import { errorResponse } from "../../../util";
 import { Login } from "../../model";
 import { IUserInfo } from "../../types";
 
