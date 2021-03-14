@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { closeSession, getCurrentSession } from "./controller";
+import { closeSession, getCurrentSession } from "../controller";
 import { googleRoutes } from "./google";
 
 export const authRoutes = Router();

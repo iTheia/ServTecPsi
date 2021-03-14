@@ -6,8 +6,8 @@ import {
   OneToOne,
   JoinColumn,
 } from "typeorm";
-import { User } from "../user";
-import { roles } from "./types";
+import { User } from "../../user";
+import { roles } from "../types";
 
 @Entity()
 export class Login extends BaseEntity {

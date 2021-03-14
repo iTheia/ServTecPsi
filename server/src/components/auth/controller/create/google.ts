@@ -1,15 +1,13 @@
 import { Request, Response } from "express";
-import { errorResponse } from "../../util";
 import { OAuth2Client } from "google-auth-library";
-import { config } from "../../../config";
-import { Login } from "../model";
-import { File } from "../../file";
-import { User } from "../../user";
+import { config } from "../../../../config";
 import {
-  createAccessToken,
-  createRefreshToken,
+  Login,
   sendRefreshToken,
-} from "../util";
+  createRefreshToken,
+  createAccessToken,
+} from "../..";
+import { File, User, errorResponse } from "../../..";
 
 const client = new OAuth2Client(config.googleClientId);
 
