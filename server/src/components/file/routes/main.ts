@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { authorizationMiddleware, upload } from "../../middlewares";
-import { createFile, deleteFile } from "./controller";
+import { authorizationMiddleware, upload } from "../../../middlewares";
+import { createFile, deleteFile } from "../controller";
 
 export const fileRoutes = Router();
 
