@@ -1,4 +1,4 @@
 export * from "./create";
 export * from "./delete";
-export * from "./getSingle";
+export * from "./read";
 export * from "./update";

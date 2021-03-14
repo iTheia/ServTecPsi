@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { errorResponse } from "../../util";
-import { Post } from "../model";
+import { Post } from "../../model";
+import { errorResponse } from "../../../util";
 
 export async function deletePost(req: Request, res: Response) {
   try {

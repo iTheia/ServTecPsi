@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
-import { PostParagraph } from "../../post_paragraph";
-import { errorResponse, trimString } from "../../util";
-import { Post } from "../model";
-import { validateCreatePost } from "../validation";
+import { Post, PostParagraph } from "../../model";
+import { trimString, errorResponse } from "../../../util";
+import { validateCreatePost } from "../../validation";
 
 export async function createPost(req: Request, res: Response) {
   try {

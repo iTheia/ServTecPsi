@@ -9,8 +9,8 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { File } from "../file";
-import { PostParagraph } from "../post_paragraph";
+import { File } from "../../file";
+import { PostParagraph } from "./Paragraph";
 
 @Entity()
 export class Post extends BaseEntity {
@@ -20,7 +20,7 @@ export class Post extends BaseEntity {
   @Column({ nullable: false })
   title: string;
 
-  @Column()
+  @Column({ unique: true })
   slug: string;
 
   @Column()
@@ -29,7 +29,7 @@ export class Post extends BaseEntity {
   @Column({ nullable: false })
   image_id: number;
 
-  @ManyToOne(() => File, (file) => file, { cascade: true })
+  @ManyToOne(() => File, (file) => file.posts, { onDelete: "CASCADE" })
   @JoinColumn({ name: "image_id" })
   image: File;
 
