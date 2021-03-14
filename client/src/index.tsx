@@ -1,10 +1,12 @@
+import { CssBaseline } from "@material-ui/core";
 import React from "react";
 import ReactDOM from "react-dom";
-import { Providers } from "./providers";
+import { Providers } from "./components";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Providers />
-    </React.StrictMode>,
-    document.getElementById("root")
+  <React.StrictMode>
+    <CssBaseline />
+    <Providers />
+  </React.StrictMode>,
+  document.getElementById("root")
 );
