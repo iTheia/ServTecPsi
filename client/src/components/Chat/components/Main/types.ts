@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 export interface ChatProps {
-  leftPanel?: FC | false;
+  leftPanel?: boolean;
   rigthPanel?: FC;
   url?: string;
 }
