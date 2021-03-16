@@ -7,8 +7,8 @@ export const AssistencePage: React.FC = () => {
   return (
     <PageComponent>
       <Header />
-      <Box mt={2}>
-        <Chat />
+      <Box height='90vh' mt={2}>
+        <Chat leftPanel={false} />
       </Box>
     </PageComponent>
   );

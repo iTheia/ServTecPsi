@@ -23,6 +23,7 @@ export const authRoutes: IRoute[] = [
   { path: "/tests", component: TestsPage, exact: true },
   { path: "/tests/:id", component: SingleTestPage },
   { path: "/services", component: ServicesPage, exact: true },
+  { path: "/help", component: AssistencePage, exact: true },
   { path: "*", component: Error404Page },
 ];
 
